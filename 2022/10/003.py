@@ -16,3 +16,40 @@
 
 # node = Node('root', Node('left', Node('left.left')), Node('right'))
 # assert deserialize(serialize(node)).left.left.val == 'left.left'
+
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def serialize(node: Node, string=""):
+    if node == None:
+        string += "/ "
+        return string
+
+    string += str(node.val) + " "
+    string = serialize(node.left, string=string)
+    string = serialize(node.right, string=string)
+    return string
+
+i = 0
+
+def deserialize(string):
+    global i
+    if string[i] == "/":
+        if(i < len(string) - 2):
+            i += 2
+        return None
+
+    else:
+        val = string[i:].find(" ") + i
+        node = Node(string[i:val])
+        i = val + 1
+        node.left = deserialize(string)
+        node.right = deserialize(string)
+        return node
+
+if __name__ == '__main__':
+    node = Node('root', Node('left', Node('left.left')), Node('right'))
+    assert deserialize(serialize(node)).left.left.val == 'left.left'
