@@ -18,6 +18,7 @@ def function1(array: list) -> int:
     for digit in range(1, maximum + 1):
         if digit not in array:
             minimum = digit
+            break
         if minimum == min(array):
             minimum = maximum + 1
     return minimum
