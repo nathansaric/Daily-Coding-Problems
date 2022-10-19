@@ -23,7 +23,7 @@ def helper1(array: list) -> int:
         product *= digit
     return product
 
-# ALTERNATE SOLUTION
+# ALTERNATE SOLUTION USING DIVISION
 
 # def function2(array: list) -> list:
 #     outputarray = []
