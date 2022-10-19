@@ -12,7 +12,7 @@ def function1(list: list, k: int) -> bool:
     for digit in list:
         set.append(digit)
         print(set)
-        if (k - digit) in set and (k-digit) != set[-1]:
+        if (k - digit) in set and (k - digit) != set[-1]:
             return True
     return False
 
