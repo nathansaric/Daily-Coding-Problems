@@ -33,10 +33,7 @@ def serialize(node: Node, string=""):
     string = serialize(node.right, string=string)
     return string
 
-i = 0
-
-def deserialize(string):
-    global i
+def deserialize(string, i=0):
     if string[i] == "/":
         if(i < len(string) - 2):
             i += 2
@@ -45,9 +42,8 @@ def deserialize(string):
     else:
         val = string[i:].find(" ") + i
         node = Node(string[i:val])
-        i = val + 1
-        node.left = deserialize(string)
-        node.right = deserialize(string)
+        node.left = deserialize(string, i = val + 1)
+        node.right = deserialize(string, i = val + 1)
         return node
 
 if __name__ == '__main__':
