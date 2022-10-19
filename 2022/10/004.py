@@ -12,7 +12,7 @@ def function1(array: list) -> int:
     if len(array) < 1:
         return None
     
-    maximum = max(array)
+    maximum = len(array)
     minimum = min(array)
 
     for digit in range(1, maximum + 1):
