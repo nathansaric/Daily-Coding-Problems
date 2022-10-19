@@ -7,3 +7,23 @@
 # For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3.
 
 # You can modify the input array in-place.
+
+def function1(array: list) -> int:
+    if len(array) < 1:
+        return None
+    
+    maximum = max(array)
+    minimum = min(array)
+
+    for digit in range(1, maximum + 1):
+        if digit not in array:
+            minimum = digit
+        if minimum == min(array):
+            minimum = maximum + 1
+    return minimum
+
+if __name__ == '__main__':
+    array1 = [3, 4, -1, 1]
+    array2 = [1, 2, 0]
+    print(function1(array1))
+    print(function1(array2))
